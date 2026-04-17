@@ -36,13 +36,16 @@ public class DwsBase {
 		}
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-	}
-
-	@BeforeMethod
-	public void login() throws IOException {
 		String url = ReadFromProperties.readFromProperties("url");
 		driver.get(url);
 	}
+
+//	@BeforeMethod
+//	public void login() throws IOException, InterruptedException {
+//		String url = ReadFromProperties.readFromProperties("url");
+//		System.out.println("URL = " + url);
+//		driver.get(url);
+//	}
 
 	@AfterClass
 	public void postCondition() {

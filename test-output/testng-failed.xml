@@ -5,10 +5,9 @@
     <classes>
       <class name="script.AutomationScript">
         <methods>
+          <include name="communityPoll"/>
           <include name="postCondition"/>
-          <include name="login"/>
           <include name="preCondition"/>
-          <include name="register"/>
         </methods>
       </class> <!-- script.AutomationScript -->
     </classes>
