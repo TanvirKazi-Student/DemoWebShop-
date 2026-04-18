@@ -5,8 +5,8 @@
     <classes>
       <class name="script.AutomationScript">
         <methods>
-          <include name="communityPoll"/>
           <include name="postCondition"/>
+          <include name="addDigitalDownloadProduct"/>
           <include name="preCondition"/>
         </methods>
       </class> <!-- script.AutomationScript -->

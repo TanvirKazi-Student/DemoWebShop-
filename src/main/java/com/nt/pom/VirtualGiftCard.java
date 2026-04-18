@@ -21,14 +21,16 @@ public class VirtualGiftCard {
 
 	@FindBy(xpath = "//textarea[@class='message']")
 	private WebElement textArea;
-	
+
 	@FindBy(xpath = "//input[@class='qty-input']")
 	private WebElement quntityInput;
 
 	@FindBy(xpath = "//input[@value='Add to cart']")
 	private WebElement addToCardVirtualGiftCard;
 
-	
+	@FindBy(xpath = "//p[@class='content']")
+	private WebElement addCardMsg;
+
 	public VirtualGiftCard(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
@@ -51,6 +53,7 @@ public class VirtualGiftCard {
 		return senderEmail;
 
 	}
+
 	public WebElement getQuntityInput() {
 		return quntityInput;
 
@@ -60,8 +63,13 @@ public class VirtualGiftCard {
 		return textArea;
 
 	}
-	
+
 	public WebElement getAddToCardVirtualGiftCard() {
 		return addToCardVirtualGiftCard;
 	}
+
+	public WebElement getAddCardMsg() {
+		return addCardMsg;
+	}
+
 }

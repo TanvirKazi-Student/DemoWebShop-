@@ -18,13 +18,19 @@ public class HomePage {
 
 	@FindBy(linkText = "Log out")
 	private WebElement logoutLink;
-	
-	@FindBy(xpath = "//input[@value=\\\"Add to cart\\\"]")
+
+	@FindBy(xpath = "//input[@value=\"Add to cart\"]")
 	private WebElement addTocartHomePage;
 
-	@FindBy(className ="cart-label")
+	@FindBy(xpath = "//a[@class='ico-cart']")
 	private WebElement shoppingCartLink;
-	
+
+	@FindBy(xpath = "//a[contains(text(),'Digital downloads')]")
+	private WebElement digitalDownloadLink;
+
+	@FindBy(xpath = "//a[text()='Build your own cheap computer']")
+	private WebElement buildYourOwnCheapComputerLink;
+
 	public HomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
@@ -44,14 +50,22 @@ public class HomePage {
 	public WebElement getLogoutLink() {
 		return logoutLink;
 	}
-	
-	public WebElement getAddTocart() {
+
+	public WebElement getAddTocartHomePage() {
 		return addTocartHomePage;
 	}
+
 	public WebElement getShoppingCartLink() {
 		return shoppingCartLink;
-		
+
 	}
-	
+
+	public WebElement getDigitalDownloads() {
+		return digitalDownloadLink;
+	}
+
+	public WebElement getBuildYourOwnCheapComputerlink() {
+		return buildYourOwnCheapComputerLink;
+	}
 
 }
