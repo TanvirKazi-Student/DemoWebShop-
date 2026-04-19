@@ -35,7 +35,7 @@ public class DwsBase {
 			driver = new ChromeDriver();
 		}
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		String url = ReadFromProperties.readFromProperties("url");
 		driver.get(url);
 	}
@@ -49,6 +49,6 @@ public class DwsBase {
 
 	@AfterClass
 	public void postCondition() {
-//		driver.quit();
+		driver.quit();
 	}
 }

@@ -1,5 +1,7 @@
 package com.nt.pom;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -30,6 +32,9 @@ public class HomePage {
 
 	@FindBy(xpath = "//a[text()='Build your own cheap computer']")
 	private WebElement buildYourOwnCheapComputerLink;
+
+	@FindBy(linkText = "Gift Cards")
+	private WebElement giftCardsLink;
 
 	public HomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
@@ -66,6 +71,10 @@ public class HomePage {
 
 	public WebElement getBuildYourOwnCheapComputerlink() {
 		return buildYourOwnCheapComputerLink;
+	}
+
+	public WebElement getGiftCardsLink() {
+		return giftCardsLink;
 	}
 
 }

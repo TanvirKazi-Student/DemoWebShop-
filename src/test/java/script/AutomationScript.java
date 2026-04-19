@@ -2,6 +2,7 @@ package script;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertNotEquals;
 import static org.testng.Assert.assertTrue;
 
 import java.util.List;
@@ -11,13 +12,13 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 import com.nt.baseclass.DwsBase;
 import com.nt.pom.BulildYourOwnCheperComputer;
 import com.nt.pom.DigitalDownloadsPage;
+import com.nt.pom.GiftCardsPage;
 import com.nt.pom.HomePage;
 import com.nt.pom.LoginPage;
 import com.nt.pom.Register;
@@ -290,7 +291,7 @@ public class AutomationScript extends DwsBase {
 // 9) Verify highest price product should be removed	
 // 10) Close the browser
 
-	@Test(enabled = true)
+	@Test(enabled = false)
 	public void addDigitalDownloadProduct() throws InterruptedException {
 		HomePage home = new HomePage(driver);
 		home.getDigitalDownloads().click();
@@ -323,5 +324,394 @@ public class AutomationScript extends DwsBase {
 		List<WebElement> updatedPrices = shopping.getAllPriceShoppingCart();
 		assertTrue(updatedPrices.size() < previousSize, "highest price product should not be removed");
 		shopping.getUpdateShoppingCart().click();
+	}
+//Verify Add All Gift Card Products to Shopping Cart in DWS
+//1) Open browser
+//2) Maximize browser
+//3) Enter into DWS webSite
+//4) Click gift card product page
+//5) After click add all the product into the shopping cart
+//6) Use two for loop
+//7) Close the browser
+
+	@Test(enabled = false)
+	public void addGiftCardProduct() throws InterruptedException {
+		HomePage home = new HomePage(driver);
+		Thread.sleep(2000);
+		WebElement giftCardsLink = home.getGiftCardsLink();
+		giftCardsLink.click();
+		GiftCardsPage giftCart = new GiftCardsPage(driver);
+		List<WebElement> allAddToCartGiftCartPage = giftCart.getAllAddToCartGiftCartPage();
+		for (int i = 0; i < 2 && i < allAddToCartGiftCartPage.size(); i++) {
+			WebElement web = allAddToCartGiftCartPage.get(i);
+			web.click();
+			VirtualGiftCard virtual = new VirtualGiftCard(driver);
+			virtual.getRecipName().sendKeys("Rohan");
+			virtual.getRecipEmail().sendKeys("rohan@gmail.com");
+			virtual.getYourName().sendKeys("Tanvir");
+			virtual.getYourEmail().sendKeys("tanvirkazi2786@gmail.com");
+			virtual.gettextArea().sendKeys("this is the important for user");
+			WebElement quntityInput = virtual.getQuntityInput();
+			quntityInput.clear();
+			quntityInput.sendKeys("2");
+			virtual.getAddToCardVirtualGiftCard().click();
+			driver.navigate().back();
+		}
+		for (int i = 2; i < 4 && i < allAddToCartGiftCartPage.size(); i++) {
+			WebElement web = allAddToCartGiftCartPage.get(i);
+			web.click();
+			VirtualGiftCard virtual = new VirtualGiftCard(driver);
+			virtual.getRecipName().sendKeys("Rohan");
+			virtual.getYourName().sendKeys("Tanvir");
+			virtual.gettextArea().sendKeys("this is the important for user");
+			WebElement quntityInput = virtual.getQuntityInput();
+			quntityInput.clear();
+			quntityInput.sendKeys("2");
+			virtual.getAddToCardVirtualGiftCard().click();
+			driver.navigate().back();
+		}
+	}
+
+//Verify Login Link Display in DWS
+// 1) Open the browser
+// 2) Maximize the browser
+// 3) Enter into DWS home page
+// 4) Verify the page using the title
+// 5) Verify that the login link is display or not
+// 7) Click the login link
+// 8) Close the browser
+
+	@Test(enabled = false)
+	public void verifyLoginLinkDisplay() {
+		String expectedResult = "Demo Web Shop";
+		String actualResult = driver.getTitle();
+		assertEquals(actualResult, expectedResult, "DWS home page dose not displayed");
+		HomePage home = new HomePage(driver);
+		WebElement loginLink = home.getloginLink();
+		assertTrue(loginLink.isDisplayed(), "login  link not desable test case is faile");
+	}
+
+//Verify Login Link is Enabled in DWS	
+//1) Open the browser
+//2) Maximize the browser
+//3) Enter into DWS webSite
+//4) Verify the page using the title
+//5) Verify whether the login link is enable or not
+//6) Click the login link
+//7) Close the browser
+
+	@Test(enabled = false)
+	public void verifyLoginLinkEnable() {
+		String expectedResult = "Demo Web Shop";
+		String actualResult = driver.getTitle();
+		assertEquals(actualResult, expectedResult, "DWS home page dose not displayed");
+		HomePage home = new HomePage(driver);
+		WebElement loginLink = home.getloginLink();
+		assertTrue(loginLink.isEnabled(), "login  link not enable test case is faile");
+	}
+
+//Verify Navigation to Login Page	
+//1) Open the browser
+//2) Maximize the browser
+//3) Enter into DWS webSite
+//4) Click the login link
+//5) Verify the page whether i am successfully enter into login page or not
+//6) Close the browser
+
+	@Test(enabled = false)
+	public void verifyNavigationLoginLink() {
+		HomePage home = new HomePage(driver);
+		WebElement loginLink = home.getloginLink();
+		loginLink.click();
+		assertTrue(driver.getCurrentUrl().contains("login"),
+				"succesfully not enteraing into login page test case is failed");
+	}
+
+//	Verify Email Field Functionality on Login Page (positive case)
+// 1) Open the browser
+// 2) Maximize the browser
+// 3) Enter into DWS webSite
+// 4) Click the login link
+// 5) Verify the page whether I am successfully enter into login page by using title
+// 6) Pass the current credential by the email text field
+// 7) Verify the data is successfully added email text field or not
+// 8) Close the browser
+
+	@Test(enabled = false)
+	public void verifyEmailFieldPositive() {
+		HomePage home = new HomePage(driver);
+		WebElement loginLink = home.getloginLink();
+		loginLink.click();
+		assertTrue(driver.getCurrentUrl().contains("login"),
+				"succesfully not enteraing into login page test case is failed");
+		LoginPage login = new LoginPage(driver);
+		WebElement searchFiledEmail = login.getEmail();
+		String expectedEmail = "tanvirkazi2786@gmail.com";
+		searchFiledEmail.sendKeys(expectedEmail);
+		String actualEmail = searchFiledEmail.getAttribute("value");
+		assertEquals(actualEmail, expectedEmail, "email is not correctly pass");
+	}
+
+//	Verify Email Field Functionality on Login Page (negative case)
+// 1) Open the browser
+// 2) Maximize the browser
+// 3) Enter into DWS webSite
+// 4) Click the login link
+// 5) Verify the page whether I am successfully enter into login page by using title
+// 6) Pass the current credential by the email text field
+// 7) Verify the data is successfully not added email text field or not
+// 8) Close the browser
+
+	@Test(enabled = false)
+	public void verifyEmailFieldNegative() {
+		HomePage home = new HomePage(driver);
+		WebElement loginLink = home.getloginLink();
+		loginLink.click();
+		assertTrue(driver.getCurrentUrl().contains("login"),
+				"succesfully not enteraing into login page test case is failed");
+		LoginPage login = new LoginPage(driver);
+		WebElement searchFiledEmail = login.getEmail();
+		String expectedEmail = "tanvirkazi2786";
+		searchFiledEmail.sendKeys(expectedEmail);
+		String actualEmail = searchFiledEmail.getAttribute("value");
+		assertNotEquals(actualEmail, expectedEmail, "Invalid email should not match valid email");
+		login.getLoginButton().click();
+	}
+
+//	Verify Password Field Functionality on Login Page (positive case)
+// 1) Open the browser
+// 2) Maximize the browser
+// 3) Enter into DWS webSite
+// 4) Click the login link
+// 5) Verify the page whether I am successfully enter into login page by using URL
+// 6) Send the current credential to the password field
+// 7) Check whether data is successfully added into password field or not
+// 8) Close the browser
+
+	@Test(enabled = false)
+	public void verifyPasswordFieldPositive() {
+		HomePage home = new HomePage(driver);
+		WebElement loginLink = home.getloginLink();
+		loginLink.click();
+		assertTrue(driver.getCurrentUrl().contains("login"),
+				"succesfully not enteraing into login page test case is failed");
+		LoginPage login = new LoginPage(driver);
+		WebElement searchFiledPassword = login.getPassword();
+		String expectedPassword = "tanvir@123";
+		searchFiledPassword.sendKeys(expectedPassword);
+		String actualPassword = searchFiledPassword.getAttribute("value");
+		assertEquals(actualPassword, expectedPassword, "password is not correctly pass");
+		String fieldType = searchFiledPassword.getAttribute("type");
+		assertEquals(fieldType, "password", "Password field is not masked");
+	}
+
+//	Verify Password Field Functionality on Login Page (negative case)
+// 1) Open the browser
+// 2) Maximize the browser window
+// 3) Navigate to the Demo Web Shop (DWS) home page
+// 4) Click on the "Login" link
+// 5) Verify that the Login page is displayed using URL
+// 6) Enter invalid password into the Password field
+// 7) Click on the "Login" button
+// 8) Verify that login is NOT successful
+// 9) Verify that an error message is displayed
+// 10) Close the browser
+
+	@Test(enabled = false)
+	public void verifyPasswordField() {
+		HomePage home = new HomePage(driver);
+		WebElement loginLink = home.getloginLink();
+		loginLink.click();
+		assertTrue(driver.getCurrentUrl().contains("login"),
+				"succesfully not enteraing into login page test case is failed");
+		LoginPage login = new LoginPage(driver);
+		WebElement searchFiledPassword = login.getPassword();
+		String expectedPassword = "tanvir";
+		searchFiledPassword.sendKeys(expectedPassword);
+		String actualPassword = searchFiledPassword.getAttribute("value");
+		assertEquals(actualPassword, expectedPassword, "password is not correctly pass");
+		String fieldType = searchFiledPassword.getAttribute("type");
+		assertEquals(fieldType, "password", "Password field is not masked");
+		login.getLoginButton().click();
+	}
+
+//	Verify Login Functionality with Valid Credentials
+// 1) Open the browser
+// 2) Maximize the browser
+// 3) Enter into DWS webSite
+// 4) Click the login link
+// 5) After clicking the login link fill email or password text filed with current credential after filling click login.
+// 6) Verify the login is successfully or not
+// 7) Close the browser
+
+	@Test(enabled = false)
+	public void verifyLoginFunctionality() {
+		HomePage home = new HomePage(driver);
+		WebElement loginLink = home.getloginLink();
+		loginLink.click();
+		assertTrue(driver.getCurrentUrl().contains("login"),
+				"succesfully not enteraing into login page test case is failed");
+		LoginPage login = new LoginPage(driver);
+		WebElement searchFiledEmail = login.getEmail();
+		String expectedEmail = "tanvirkazi2786@gmail.com";
+		searchFiledEmail.sendKeys(expectedEmail);
+		String actualEmail = searchFiledEmail.getAttribute("value");
+		assertEquals(actualEmail, expectedEmail, "email is not correctly pass");
+		WebElement searchFiledPassword = login.getPassword();
+		String expectedPassword = "tanvir@123";
+		searchFiledPassword.sendKeys(expectedPassword);
+		String actualPassword = searchFiledPassword.getAttribute("value");
+		assertEquals(actualPassword, expectedPassword, "password is not correctly pass");
+		login.getLoginButton().click();
+		WebElement logOut = home.getLogoutLink();
+		assertTrue(logOut.getText().contains("Log out"), "login is not success test case is faile");
+
+	}
+
+// Verify Register Link Display in DWS
+// 1) Open the browser
+// 2) Maximize the browser
+// 3) Enter into DWS home page
+// 4) Verify the page using the title
+// 5) Verify that the register link is display or not
+// 7) Click the register link
+// 8) Close the browser
+
+	@Test(enabled = false)
+	public void verifyRegisterLinkDisplay() {
+		String expectedResult = "Demo Web Shop";
+		String actualResult = driver.getTitle();
+		assertEquals(actualResult, expectedResult, "DWS home page dose not displayed");
+		HomePage home = new HomePage(driver);
+		WebElement registerLink = home.getRegisterLink();
+		assertTrue(registerLink.isDisplayed(), "register link not desable test case is faile");
+		registerLink.click();
+	}
+
+// Verify Register Link is Enabled in DWS
+// 1) Open the browser
+// 2) Maximize the browser
+// 3) Enter into DWS webSite
+// 4) Verify the page using the title
+// 5) Verify whether the register link is enable or not
+// 6) Click the register link
+// 7) Close the browser
+
+	@Test(enabled = false)
+	public void verifyRegisterLinkEnable() {
+		String expectedResult = "Demo Web Shop";
+		String actualResult = driver.getTitle();
+		assertEquals(actualResult, expectedResult, "DWS home page dose not displayed");
+		HomePage home = new HomePage(driver);
+		WebElement registerLink = home.getRegisterLink();
+		assertTrue(registerLink.isEnabled(), "register link not enable test case is faile");
+		registerLink.click();
+	}
+
+// Verify Navigation to Register Page
+// 1) Open the browser
+// 2) Maximize the browser
+// 3) Enter into DWS webSite
+// 4) Click the register link
+// 5) Verify the page whether i am successfully enter into register page or not
+// 6) Close the browser
+
+	@Test(enabled = false)
+	public void verifyNavigationRegisterLink() {
+		HomePage home = new HomePage(driver);
+		WebElement registerLink = home.getRegisterLink();
+		registerLink.click();
+		assertTrue(driver.getCurrentUrl().contains("register"),
+				"succesfully not enteraing into register page test case is failed");
+	}
+
+//	Verify Male Radio Button Selection (Positive Case)
+// 1) Open the browser
+// 2) Maximize the browser
+// 3) Enter into DWS webSite
+// 4) Click the register link
+// 5) Verify the page whether I am successfully enter into register page by using title
+// 6) Pass the current credential by the  male radio button
+// 7) Verify the male radio button is successfully selected 
+// 8) Close the browser
+
+	@Test(enabled = false)
+	public void verifyMaleRadioButtonPositive() {
+		HomePage home = new HomePage(driver);
+		WebElement registerLink = home.getRegisterLink();
+		registerLink.click();
+		assertTrue(driver.getCurrentUrl().contains("register"),
+				"succesfully not enteraing into register page test case is failed");
+		Register register = new Register(driver);
+		WebElement maleRadioButton = register.getMaleRedioButton();
+		maleRadioButton.click();
+		assertTrue(maleRadioButton.isSelected(), "Male radio button is not selected after click");
+	}
+
+// Verify Male Radio Button is NOT Selected by Default (Negative Case)
+// 1) Launch the browser
+// 2) Maximize the browser window
+// 3) Navigate to the DWS home page
+// 4) Click on the "Register" link
+// 5) Verify that the Register page is displayed
+// 6) Do NOT select the male radio button
+// 7) Verify that the male radio button is NOT selected
+// 8) Close the browser
+
+	@Test(enabled = false)
+	public void verifyMaleRadioButtonNegative() {
+		HomePage home = new HomePage(driver);
+		WebElement registerLink = home.getRegisterLink();
+		registerLink.click();
+		assertTrue(driver.getCurrentUrl().contains("register"),
+				"succesfully not enteraing into register page test case is failed");
+		Register register = new Register(driver);
+		WebElement maleRadioButton = register.getMaleRedioButton();
+		assertFalse(maleRadioButton.isSelected(), "Male radio button is selected before click");
+	}
+
+// Verify Female Radio Button Selection (Positive Case)
+// 1) Open the browser
+// 2) Maximize the browser
+// 3) Enter into DWS webSite
+// 4) Click the register link
+// 5) Verify the page whether I am successfully enter into register page by using title
+// 6) Pass the current credential by the female radio button
+// 7) Verify the female radio button is successfully selected 
+// 8) Close the browser
+
+	@Test(enabled = false)
+	public void verifyFemaleRadioButtonPositive() {
+		HomePage home = new HomePage(driver);
+		WebElement registerLink = home.getRegisterLink();
+		registerLink.click();
+		assertTrue(driver.getCurrentUrl().contains("register"),
+				"succesfully not enteraing into register page test case is failed");
+		Register register = new Register(driver);
+		WebElement femaleRadioButton = register.getFemaleRedioButton();
+		femaleRadioButton.click();
+		assertTrue(femaleRadioButton.isSelected(), "Female radio button is not selected after click");
+	}
+
+// Verify Female Radio Button is NOT Selected by Default (Negative Case)
+// 1) Launch the browser
+// 2) Maximize the browser window
+// 3) Navigate to the DWS home page
+// 4) Click on the "Register" link
+// 5) Verify that the Register page is displayed
+// 6) Do NOT select the female radio button
+// 7) Verify that the female radio button is NOT selected
+// 8) Close the browser
+
+	@Test(enabled = false)
+	public void verifyFemaleRadioButtonNegative() {
+		HomePage home = new HomePage(driver);
+		WebElement registerLink = home.getRegisterLink();
+		registerLink.click();
+		assertTrue(driver.getCurrentUrl().contains("register"),
+				"succesfully not enteraing into register page test case is failed");
+		Register register = new Register(driver);
+		WebElement femaleRadioButton = register.getFemaleRedioButton();
+		assertFalse(femaleRadioButton.isSelected(), "Female radio button is selected before click");
 	}
 }

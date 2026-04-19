@@ -10,6 +10,9 @@ public class Register {
 	@FindBy(id = "gender-male")
 	private WebElement maleRedioButton;
 
+	@FindBy(id = "gender-female")
+	private WebElement femaleRedioButton;
+
 	@FindBy(name = "FirstName")
 	private WebElement firstName;
 
@@ -59,4 +62,9 @@ public class Register {
 	public WebElement getRegisterButton() {
 		return registerButton;
 	}
+
+	public WebElement getFemaleRedioButton() {
+		return femaleRedioButton;
+	}
+
 }
