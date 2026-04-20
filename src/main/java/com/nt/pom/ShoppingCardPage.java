@@ -10,7 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 public class ShoppingCardPage {
 
 	@FindBy(xpath = "//input[@type='checkbox']")
-	private WebElement removeCheckBox;
+	private List<WebElement> removeCheckBox;
 
 	@FindBy(xpath = "//input[@value='Update shopping cart']")
 	private WebElement updateShoppingCart;
@@ -34,7 +34,7 @@ public class ShoppingCardPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public WebElement getRemoveCheckBox() {
+	public List<WebElement> getRemoveCheckBox() {
 		return removeCheckBox;
 	}
 

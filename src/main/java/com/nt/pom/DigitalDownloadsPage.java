@@ -18,6 +18,9 @@ public class DigitalDownloadsPage {
 	@FindBy(xpath = "//input[@value='Add to cart']")
 	private List<WebElement> allAddToCarts;
 
+	@FindBy(id = "products-orderby")
+	private WebElement sortbyDropdown;
+
 	public DigitalDownloadsPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
@@ -32,5 +35,9 @@ public class DigitalDownloadsPage {
 
 	public List<WebElement> getAllAddToCarts() {
 		return allAddToCarts;
+	}
+
+	public WebElement getSortbyDropdown() {
+		return sortbyDropdown;
 	}
 }

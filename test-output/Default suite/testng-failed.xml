@@ -5,7 +5,7 @@
     <classes>
       <class name="script.AutomationScript">
         <methods>
-          <include name="verifyGenderMaleRadioButton"/>
+          <include name="add"/>
           <include name="postCondition"/>
           <include name="preCondition"/>
         </methods>

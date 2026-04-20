@@ -36,6 +36,9 @@ public class HomePage {
 	@FindBy(linkText = "Gift Cards")
 	private WebElement giftCardsLink;
 
+	@FindBy(linkText = "Apparel & Shoes")
+	private WebElement apparealShoesLink;
+
 	public HomePage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
@@ -75,6 +78,10 @@ public class HomePage {
 
 	public WebElement getGiftCardsLink() {
 		return giftCardsLink;
+	}
+
+	public WebElement getapparelShoesLink() {
+		return apparealShoesLink;
 	}
 
 }

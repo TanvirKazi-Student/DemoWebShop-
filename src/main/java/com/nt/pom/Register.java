@@ -31,6 +31,12 @@ public class Register {
 	@FindBy(css = "#register-button")
 	private WebElement registerButton;
 
+	@FindBy(xpath = "//span[contains(text(),'The password')]")
+	private WebElement confirmPasswordMsg;
+
+	@FindBy(xpath = "//div[@class='validation-summary-errors']//ul//li[text()='The specified email already exists']")
+	private WebElement duplicateEmailMsg;
+
 	public Register(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
@@ -65,6 +71,15 @@ public class Register {
 
 	public WebElement getFemaleRedioButton() {
 		return femaleRedioButton;
+	}
+
+	public WebElement getConfirmPasswordMsg() {
+		return confirmPasswordMsg;
+	}
+
+	public WebElement getDuplicateEmailMsg() {
+		return duplicateEmailMsg;
+		
 	}
 
 }
