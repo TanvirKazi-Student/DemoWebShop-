@@ -952,16 +952,69 @@ public class AutomationScript extends DwsBase {
 		WebElement singlSelect = digital.getSortbyDropdown();
 		Select sel = new Select(singlSelect);
 		int size = sel.getOptions().size();
-
 		for (int i = 0; i < size; i++) {
 			WebElement singElement = digital.getSortbyDropdown();
 			sel = new Select(singElement);
 			sel.selectByIndex(i);
 			String expectedOption = sel.getOptions().get(i).getText();
 			String actualOption = sel.getFirstSelectedOption().getText();
-			assertEquals(actualOption, expectedOption, "Dropdown option selection failed at index: " + i);
+			assertEquals(actualOption, expectedOption, "sort by dropdown option selection failed at index: " + i);
+		}
+
+	}
+
+//	Verify Display Dropdown Options in Digital Downloads Page 
+//Write a script for DWS webSite
+//1)open the browser
+//2)enter into DWS page
+//3)click digital download
+//4)select all the option inside the Display drop down top to bottom	
+//5)validate that selected option is applied correctly  	
+//6)close the browser
+	@Test(enabled = false)
+	public void verifyDisplayDropdown() {
+		HomePage home = new HomePage(driver);
+		home.getDigitalDownloads().click();
+		DigitalDownloadsPage digital = new DigitalDownloadsPage(driver);
+		WebElement displayDropdown = digital.getDisplayDropdown();
+		Select sel = new Select(displayDropdown);
+		int size = sel.getOptions().size();
+		for (int i = 0; i < size; i++) {
+			displayDropdown = digital.getDisplayDropdown();
+			sel = new Select(displayDropdown);
+			String expectedOption = sel.getOptions().get(i).getText();
+			sel.selectByIndex(i);
+			String actualOption = sel.getFirstSelectedOption().getText();
+			assertEquals(actualOption, expectedOption, "display dropdown option selection failed at index: " + i);
 		}
 	}
+
+//	Verify view by Dropdown Options in Digital Downloads Page 
+//Write a script for DWS webSite
+//1)open the browser
+//2)enter into DWS page
+//3)click digital download
+//4)select all the option inside the view by drop down top to bottom	
+//5)validate that selected option is applied correctly  	
+//6)close the browser
+	@Test(enabled = false)
+	public void verifyViewDropdown() {
+		HomePage home = new HomePage(driver);
+		home.getDigitalDownloads().click();
+		DigitalDownloadsPage digital = new DigitalDownloadsPage(driver);
+		WebElement viewAsDropdown = digital.getViewAsDropdown();
+		Select sel = new Select(viewAsDropdown);
+		int size = sel.getOptions().size();
+		for (int i = 0; i < size; i++) {
+			viewAsDropdown = digital.getViewAsDropdown();
+			sel = new Select(viewAsDropdown);
+			String expectedOption = sel.getOptions().get(i).getText();
+			sel.selectByIndex(i);
+			String actualOption = sel.getFirstSelectedOption().getText();
+			assertEquals(actualOption, expectedOption, "view by dropdown option selection failed at index: " + i);
+		}
+	}
+
 //	Add & Remove Product from Shopping Cart 
 	// 1) Open the browser
 	// 2) Maximize the browser window
@@ -1040,11 +1093,11 @@ public class AutomationScript extends DwsBase {
 			}
 		}
 		removeCheck.get(index2).click();
-		
+
 		System.out.println("max price: " + max);
-		System.out.println(index);//1
-		System.out.println(index2);//0
-		
+		System.out.println(index);// 1
+		System.out.println(index2);// 0
+
 		shopping.getUpdateShoppingCart().click();
 	}
 }

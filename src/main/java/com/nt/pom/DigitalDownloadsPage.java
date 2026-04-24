@@ -21,6 +21,12 @@ public class DigitalDownloadsPage {
 	@FindBy(id = "products-orderby")
 	private WebElement sortbyDropdown;
 
+	@FindBy(id = "products-pagesize")
+	private WebElement displayDropdown;
+
+	@FindBy(xpath = "//select[@id='products-viewmode']")
+	private WebElement viewAsDropdown;
+
 	public DigitalDownloadsPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
@@ -39,5 +45,13 @@ public class DigitalDownloadsPage {
 
 	public WebElement getSortbyDropdown() {
 		return sortbyDropdown;
+	}
+
+	public WebElement getDisplayDropdown() {
+		return displayDropdown;
+	}
+
+	public WebElement getViewAsDropdown() {
+		return viewAsDropdown;
 	}
 }

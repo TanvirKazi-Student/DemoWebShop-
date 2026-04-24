@@ -5,8 +5,8 @@
     <classes>
       <class name="script.AutomationScript">
         <methods>
-          <include name="add"/>
           <include name="postCondition"/>
+          <include name="verifyDisplayDropdown"/>
           <include name="preCondition"/>
         </methods>
       </class> <!-- script.AutomationScript -->

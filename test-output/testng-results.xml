@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="34" total="35" passed="1" failed="0" skipped="0">
+<testng-results ignored="36" total="37" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-04-20T19:12:17 IST" name="Default suite" finished-at="2026-04-20T19:12:55 IST" duration-ms="37955">
+  <suite started-at="2026-04-20T22:09:23 IST" name="Default suite" finished-at="2026-04-20T22:09:30 IST" duration-ms="6927">
     <groups>
     </groups>
-    <test started-at="2026-04-20T19:12:17 IST" name="Default test" finished-at="2026-04-20T19:12:55 IST" duration-ms="37955">
+    <test started-at="2026-04-20T22:09:23 IST" name="Default test" finished-at="2026-04-20T22:09:30 IST" duration-ms="6927">
       <class name="script.AutomationScript">
-        <test-method is-config="true" signature="preCondition()[pri:0, instance:script.AutomationScript@3bf7ca37]" started-at="2026-04-20T19:12:17 IST" name="preCondition" finished-at="2026-04-20T19:12:24 IST" duration-ms="7176" status="PASS">
+        <test-method is-config="true" signature="preCondition()[pri:0, instance:script.AutomationScript@4d1c00d0]" started-at="2026-04-20T22:09:23 IST" name="preCondition" finished-at="2026-04-20T22:09:28 IST" duration-ms="4673" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- preCondition -->
-        <test-method signature="add()[pri:0, instance:script.AutomationScript@3bf7ca37]" started-at="2026-04-20T19:12:24 IST" name="add" finished-at="2026-04-20T19:12:55 IST" duration-ms="30739" status="PASS">
+        <test-method signature="verifyViewDropdown()[pri:0, instance:script.AutomationScript@4d1c00d0]" started-at="2026-04-20T22:09:28 IST" name="verifyViewDropdown" finished-at="2026-04-20T22:09:30 IST" duration-ms="2184" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- add -->
-        <test-method is-config="true" signature="postCondition()[pri:0, instance:script.AutomationScript@3bf7ca37]" started-at="2026-04-20T19:12:55 IST" name="postCondition" finished-at="2026-04-20T19:12:55 IST" duration-ms="0" status="PASS">
+        </test-method> <!-- verifyViewDropdown -->
+        <test-method is-config="true" signature="postCondition()[pri:0, instance:script.AutomationScript@4d1c00d0]" started-at="2026-04-20T22:09:30 IST" name="postCondition" finished-at="2026-04-20T22:09:30 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- postCondition -->
