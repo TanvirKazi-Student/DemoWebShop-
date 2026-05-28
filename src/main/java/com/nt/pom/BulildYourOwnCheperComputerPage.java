@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class BulildYourOwnCheperComputer {
+public class BulildYourOwnCheperComputerPage {
 
 	@FindBy(xpath = "//input[@value='65']")
 	private WebElement processorFast;
@@ -37,7 +37,7 @@ public class BulildYourOwnCheperComputer {
 	@FindBy(xpath = "//input[@value='93']")
 	private WebElement softwareImageViever;
 
-	public BulildYourOwnCheperComputer(WebDriver driver) {
+	public BulildYourOwnCheperComputerPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 

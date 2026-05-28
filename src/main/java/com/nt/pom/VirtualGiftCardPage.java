@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class VirtualGiftCard {
+public class VirtualGiftCardPage {
 
 	@FindBy(xpath = "//input[@class='recipient-name']")
 	private WebElement recipName;
@@ -31,7 +31,7 @@ public class VirtualGiftCard {
 	@FindBy(xpath = "//p[@class='content']")
 	private WebElement addCardMsg;
 
-	public VirtualGiftCard(WebDriver driver) {
+	public VirtualGiftCardPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 

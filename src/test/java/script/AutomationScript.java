@@ -20,15 +20,15 @@ import org.testng.asserts.SoftAssert;
 import com.nt.baseclass.DwsBase;
 import com.nt.pom.ApparelShoesPage;
 import com.nt.pom.BlueAndGreenSneakerPage;
-import com.nt.pom.BulildYourOwnCheperComputer;
+import com.nt.pom.BulildYourOwnCheperComputerPage;
 import com.nt.pom.DigitalDownloadsPage;
 import com.nt.pom.GiftCardsPage;
 import com.nt.pom.HomePage;
 import com.nt.pom.LoginPage;
-import com.nt.pom.Register;
+import com.nt.pom.RegisterPage;
 import com.nt.pom.RockabillyPage;
 import com.nt.pom.ShoppingCardPage;
-import com.nt.pom.VirtualGiftCard;
+import com.nt.pom.VirtualGiftCardPage;
 
 public class AutomationScript extends DwsBase {
 
@@ -63,7 +63,7 @@ public class AutomationScript extends DwsBase {
 		String expectedUrl = "https://demowebshop.tricentis.com/register";
 		String actualurl = driver.getCurrentUrl();
 		assertEquals(actualurl, expectedUrl, "register page dose not displayed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		register.getMaleRedioButton().click();
 		register.getFirstName().sendKeys("Tanvir");
 		register.getlastName().sendKeys("Kazi");
@@ -145,7 +145,7 @@ public class AutomationScript extends DwsBase {
 		assertEquals(actualurl, expectedUrl, "DWS home page dose not displayed");
 		HomePage home = new HomePage(driver);
 		home.getAddTocartHomePage().click();
-		VirtualGiftCard virtual = new VirtualGiftCard(driver);
+		VirtualGiftCardPage virtual = new VirtualGiftCardPage(driver);
 		virtual.getRecipName().sendKeys("Rohan");
 		virtual.getRecipEmail().sendKeys("rohan@gmail.com");
 		virtual.getYourName().sendKeys("Tanvir");
@@ -204,7 +204,7 @@ public class AutomationScript extends DwsBase {
 	public void buildCheapComputer() throws InterruptedException {
 		HomePage home = new HomePage(driver);
 		home.getBuildYourOwnCheapComputerlink().click();
-		BulildYourOwnCheperComputer build = new BulildYourOwnCheperComputer(driver);
+		BulildYourOwnCheperComputerPage build = new BulildYourOwnCheperComputerPage(driver);
 		build.getProcessorfast().click();
 		build.getRam8Gb().click();
 		build.gethdd400Gb().click();
@@ -242,7 +242,7 @@ public class AutomationScript extends DwsBase {
 		login();
 		HomePage home = new HomePage(driver);
 		home.getBuildYourOwnCheapComputerlink().click();
-		BulildYourOwnCheperComputer build = new BulildYourOwnCheperComputer(driver);
+		BulildYourOwnCheperComputerPage build = new BulildYourOwnCheperComputerPage(driver);
 		build.getProcessorSlow().click();
 		build.getRam2Gb().click();
 		build.getHdd320Gb().click();
@@ -352,7 +352,7 @@ public class AutomationScript extends DwsBase {
 		for (int i = 0; i < 2 && i < allAddToCartGiftCartPage.size(); i++) {
 			WebElement web = allAddToCartGiftCartPage.get(i);
 			web.click();
-			VirtualGiftCard virtual = new VirtualGiftCard(driver);
+			VirtualGiftCardPage virtual = new VirtualGiftCardPage(driver);
 			virtual.getRecipName().sendKeys("Rohan");
 			virtual.getRecipEmail().sendKeys("rohan@gmail.com");
 			virtual.getYourName().sendKeys("Tanvir");
@@ -367,7 +367,7 @@ public class AutomationScript extends DwsBase {
 		for (int i = 2; i < 4 && i < allAddToCartGiftCartPage.size(); i++) {
 			WebElement web = allAddToCartGiftCartPage.get(i);
 			web.click();
-			VirtualGiftCard virtual = new VirtualGiftCard(driver);
+			VirtualGiftCardPage virtual = new VirtualGiftCardPage(driver);
 			virtual.getRecipName().sendKeys("Rohan");
 			virtual.getYourName().sendKeys("Tanvir");
 			virtual.gettextArea().sendKeys("this is the important for user");
@@ -649,7 +649,7 @@ public class AutomationScript extends DwsBase {
 		registerLink.click();
 		assertTrue(driver.getCurrentUrl().contains("register"),
 				"succesfully not enteraing into register page test case is failed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		WebElement maleRadioButton = register.getMaleRedioButton();
 		maleRadioButton.click();
 		assertTrue(maleRadioButton.isSelected(), "Male radio button is not selected after click");
@@ -672,7 +672,7 @@ public class AutomationScript extends DwsBase {
 		registerLink.click();
 		assertTrue(driver.getCurrentUrl().contains("register"),
 				"succesfully not enteraing into register page test case is failed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		WebElement maleRadioButton = register.getMaleRedioButton();
 		assertFalse(maleRadioButton.isSelected(), "Male radio button is selected before click");
 	}
@@ -694,7 +694,7 @@ public class AutomationScript extends DwsBase {
 		registerLink.click();
 		assertTrue(driver.getCurrentUrl().contains("register"),
 				"succesfully not enteraing into register page test case is failed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		WebElement femaleRadioButton = register.getFemaleRedioButton();
 		femaleRadioButton.click();
 		assertTrue(femaleRadioButton.isSelected(), "Female radio button is not selected after click");
@@ -717,7 +717,7 @@ public class AutomationScript extends DwsBase {
 		registerLink.click();
 		assertTrue(driver.getCurrentUrl().contains("register"),
 				"succesfully not enteraing into register page test case is failed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		WebElement femaleRadioButton = register.getFemaleRedioButton();
 		assertFalse(femaleRadioButton.isSelected(), "Female radio button is selected before click");
 	}
@@ -739,7 +739,7 @@ public class AutomationScript extends DwsBase {
 		registerLink.click();
 		assertTrue(driver.getCurrentUrl().contains("register"),
 				"succesfully not enteraing into register page test case is failed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		WebElement firstNameTextField = register.getFirstName();
 		String expectedResult = "Tanvir";
 		firstNameTextField.sendKeys(expectedResult);
@@ -764,7 +764,7 @@ public class AutomationScript extends DwsBase {
 		registerLink.click();
 		assertTrue(driver.getCurrentUrl().contains("register"),
 				"succesfully not enteraing into register page test case is failed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		WebElement lastNameTextField = register.getlastName();
 		String expectedResult = "kazi";
 		lastNameTextField.sendKeys(expectedResult);
@@ -789,7 +789,7 @@ public class AutomationScript extends DwsBase {
 		registerLink.click();
 		assertTrue(driver.getCurrentUrl().contains("register"),
 				"succesfully not enteraing into register page test case is failed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		WebElement emailTextField = register.getEmail();
 		String expectedResult = "tanvirkazi2786@gmail.com";
 		emailTextField.sendKeys(expectedResult);
@@ -815,7 +815,7 @@ public class AutomationScript extends DwsBase {
 		registerLink.click();
 		assertTrue(driver.getCurrentUrl().contains("register"),
 				"succesfully not enteraing into register page test case is failed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		WebElement passwordTextField = register.getPassword();
 		String expectedResult = "tanvirkazi278";
 		passwordTextField.sendKeys(expectedResult);
@@ -845,7 +845,7 @@ public class AutomationScript extends DwsBase {
 		registerLink.click();
 		assertTrue(driver.getCurrentUrl().contains("register"),
 				"succesfully not enteraing into register page test case is failed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		register.getMaleRedioButton().click();
 		register.getFirstName().sendKeys("Tanvir");
 		register.getlastName().sendKeys("kazi");
@@ -881,7 +881,7 @@ public class AutomationScript extends DwsBase {
 		registerLink.click();
 		assertTrue(driver.getCurrentUrl().contains("register"),
 				"succesfully not enteraing into register page test case is failed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		register.getMaleRedioButton().click();
 		register.getFirstName().sendKeys("Tanvir");
 		register.getlastName().sendKeys("kazi");
@@ -922,7 +922,7 @@ public class AutomationScript extends DwsBase {
 		registerLink.click();
 		assertTrue(driver.getCurrentUrl().contains("register"),
 				"succesfully not enteraing into register page test case is failed");
-		Register register = new Register(driver);
+		RegisterPage register = new RegisterPage(driver);
 		register.getMaleRedioButton().click();
 		register.getFirstName().sendKeys("Tanvir");
 		register.getlastName().sendKeys("kazi");

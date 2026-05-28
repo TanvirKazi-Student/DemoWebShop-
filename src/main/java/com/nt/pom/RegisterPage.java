@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Register {
+public class RegisterPage {
 
 	@FindBy(id = "gender-male")
 	private WebElement maleRedioButton;
@@ -37,7 +37,7 @@ public class Register {
 	@FindBy(xpath = "//div[@class='validation-summary-errors']//ul//li[text()='The specified email already exists']")
 	private WebElement duplicateEmailMsg;
 
-	public Register(WebDriver driver) {
+	public RegisterPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 
