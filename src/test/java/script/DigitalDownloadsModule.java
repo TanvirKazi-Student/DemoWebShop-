@@ -96,8 +96,7 @@ public class DigitalDownloadsModule extends DwsBase {
 		}
 	}
 	
-	
-	 
+
 
 		@Test(enabled = false)
 		public void addDigitalDownloadProduct() throws InterruptedException {
